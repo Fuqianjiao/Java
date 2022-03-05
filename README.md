@@ -1,2 +1,2 @@
 # Java
-This is a description.
+This is a java repository for fuqianjiao's video.

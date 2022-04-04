@@ -16,7 +16,7 @@ public class review04 {
         arrayClassInsert.insert(88);
 
         arrayClassInsert.display();
-        arrayClassInsert.insertSort();// 执行插入排序
+        arrayClassInsert.insertSort();//执行插入排序
         arrayClassInsert.display();
 
     }

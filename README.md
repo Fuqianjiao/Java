@@ -1,2 +1,2 @@
 # Java
-This is a java repository for fuqianjiao's video.
+傅倩娇的javase之旅

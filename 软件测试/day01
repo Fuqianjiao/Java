@@ -1,0 +1,46 @@
+/*以下是一个简单的Java程序 P，包含一个fault，并提供了三个测试场景 t1、t2 和 t3*/
+public class P {
+    public static int calculate(int a, int b) {
+        // Fault: 未考虑除数为零的情况
+        return a / b;
+    }
+
+    public static void main(String[] args) {
+        // Placeholder for fault execution
+    }
+}
+/*
+t1执行到fault， 但没有产生error*/
+public class  Test1{
+    public static void main(String[] args){
+        try {
+            //测试1，执行fault(代码)，但是没有error(状态)
+            int result = P.calculate(10,0);
+            System.out.println("t1 Result:"+result);
+        }catch(ArithmeticException e){//`catch (ArithmeticException e)` 是一个异常处理块
+            System.out.println("t1 Error:"+e.getMessage());
+        }
+    }
+}
+public class  Test2{
+    public static void main(String[] args){
+        try{
+            // 测试t2：执行到fault(代码），产生error(状态)但没有传播出去成为failure(错误状态)
+            int result = P.calculate(10,0);
+            System.out.println("t2 Result："+result);
+        }catch (ArithmeticException e){
+            //错误没有被传出去
+        }
+    }
+}
+public class Test3{
+    public static void main(String[] args){
+        try{
+            //测试t3：执行到fault并产生了error，传播出去成为failure
+            int result =P.calculate(10,0);
+            System.out.println("t3 result:"+result);
+        }catch(ArithmeticException e){
+            System.out.println("t3 Error:"+e.getMessage());
+        }
+    }
+}

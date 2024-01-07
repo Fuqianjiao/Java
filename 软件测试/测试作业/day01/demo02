@@ -1,1 +1,86 @@
-111
+package cekai;
+
+/*
+Fault干扰程序和测试构造练习：
+
+        =============================================================================
+
+请构造一个尽可能简单的数值计算Java程序P（代码行数不多于30行）和两个测试用例t1和t2。构造两个Fault(F1, F2)满足以下要求：
+
+在P中注入F1得到程序P1，使得t1 fail；
+
+在P中注入F2得到程序P2，使得t2 fail；
+
+在P中注入F1和F2得到程序P3，使得t1和t2都pass。
+
+        =============================================================================
+
+上述例子用来展现Fault之间的干扰*/
+public  class demo02 {
+    public static int calculate(int a ,int b){
+        //Original code without fault
+        return a + b;
+    }
+    public static void main(String[] args){
+        //Placeholder for fault-free execution
+    }
+}
+//第一个错误
+package cekai;
+
+/*
+Fault F1：
+在 calculate 方法中，
+注入一个 Fault F1，将原本的 return a + b;
+修改为 return a * b;。*/
+public class P1{
+    public static  int calculate(int a,int b){
+        // Fault F1: Multiplication instead of addition
+        return a*b;
+    }
+    public static  void main(String[] args){
+  // Placeholder for fault execution
+    }
+}
+//第一测试用例
+package cekai;
+
+public class  TestT1{
+    public static  void main(String[] args){
+        // 测试t1：执行到F1，使得t1 fail
+        int result=P1.calculate(2,3);
+        if (result==5){
+            System.out.println("t1 Pass");
+        }else{
+            System.out.println("t1 Fail");
+        }
+    }
+    
+}
+//第二个错误
+package cekai;
+
+//设置demo2的场景
+public class P2{
+    public static int calculate(int a,int b){
+        // Fault F2: Division instead of addition
+        return a/b;
+    }
+    public static void main(String[] args){
+        // Placeholder for fault execution
+    }
+}
+//第二个测试用例
+package cekai;
+
+public class TestT2{
+    public static void main(String[] args){
+        //测试和t2，执行demo2，使得t2 fail
+        int result =P2.calculate(6,2);
+        if(result==8){
+            System.out.println("t2 pass" );
+        }else{
+            System.out.println("t2 fail");
+        }
+    }
+}

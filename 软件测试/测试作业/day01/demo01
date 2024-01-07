@@ -9,8 +9,7 @@ public class P {
         // Placeholder for fault execution
     }
 }
-/**
-t1执行到fault， 但没有产生error*/
+//t1执行到fault， 但没有产生error
 public class  Test1{
     public static void main(String[] args){
         try {
@@ -22,6 +21,7 @@ public class  Test1{
         }
     }
 }
+//t2执行fault，产生error
 public class  Test2{
     public static void main(String[] args){
         try{
@@ -33,6 +33,7 @@ public class  Test2{
         }
     }
 }
+//t3执行fault，产生error，传播出去了failure
 public class Test3{
     public static void main(String[] args){
         try{

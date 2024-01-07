@@ -9,7 +9,7 @@ public class P {
         // Placeholder for fault execution
     }
 }
-/*
+/**
 t1执行到fault， 但没有产生error*/
 public class  Test1{
     public static void main(String[] args){
